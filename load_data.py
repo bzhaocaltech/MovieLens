@@ -9,3 +9,9 @@ pickle.dump(movies, open("data/movies.p", "wb"))
 
 ratings = np.genfromtxt("data/data.txt", dtype = int, delimiter = "\t")
 pickle.dump(ratings, open("data/ratings.p", "wb"))
+
+Y_train = np.loadtxt('data/train.txt').astype(int)
+pickle.dump(Y_train, open("data/y_train.p", "wb"))
+
+Y_test = np.loadtxt('data/test.txt').astype(int)
+pickle.dump(Y_test, open("data/y_test.p", "wb"))

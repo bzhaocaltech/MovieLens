@@ -12,7 +12,7 @@ def grad_U(Ui, Yij, Vj, reg, eta):
     Returns the gradient of the regularized loss function with
     respect to Ui multiplied by eta.
     """
-    return (1-reg*eta)*Ui + eta * Vj * (Yij - np.dot(Ui,Vj))     
+    return (1-reg*eta)*Ui + eta * Vj * (Yij - np.dot(Ui,Vj))
 
 def grad_V(Vj, Yij, Ui, reg, eta):
     """
@@ -65,12 +65,12 @@ def train_model(M, N, K, eta, reg, Y, eps=0.0001, max_epochs=300):
     Returns a tuple (U, V, err) consisting of U, V, and the unregularized MSE
     of the model.
     """
-    # Initialize U, V  
+    # Initialize U, V
     U = np.random.random((M,K)) - 0.5
     V = np.random.random((K,N)) - 0.5
     size = Y.shape[0]
     delta = None
-    indices = np.arange(size)    
+    indices = np.arange(size)
     for epoch in range(max_epochs):
         # Run an epoch of SGD
         before_E_in = get_err(U, V, Y, reg)
@@ -89,7 +89,7 @@ def train_model(M, N, K, eta, reg, Y, eps=0.0001, max_epochs=300):
             delta = before_E_in - E_in
 
         # If E_in doesn't decrease by some fraction <eps>
-        # of the initial decrease in E_in, stop early            
+        # of the initial decrease in E_in, stop early
         elif before_E_in - E_in < eps * delta:
             break
     return (U, V, get_err(U, V, Y))
