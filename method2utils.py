@@ -1,6 +1,8 @@
 # Solution set for CS 155 Set 6, 2016/2017
 # Authors: Fabian Boemer, Sid Murching, Suraj Nair
 
+# Base code came from problem set 5 solutions, but significant changes were made.
+
 import numpy as np
 
 def grad_U(Ui, Yij, Vj, ai, bj, mu, reg, eta):
